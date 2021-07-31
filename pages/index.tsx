@@ -180,6 +180,7 @@ export default function Home() {
       children: (
         <List>{ListItems.map(l => createListItem(l.icon, l.text))}</List>
       ),
+      buttonText: "LET'S GO",
       footer: (
         <Typography align="center" variant="body2">
           3 day trial then $0.99/Year, cancel anytime
