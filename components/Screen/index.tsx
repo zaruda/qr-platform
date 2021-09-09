@@ -1,4 +1,5 @@
 import React, { FC, Fragment } from 'react';
+import { Drawer } from '@zaruda/zetpay-core';
 
 import { Button, Grid } from '@material-ui/core';
 
@@ -7,7 +8,6 @@ import ArrowRightIcon from '../icons/ArrowRightIcon';
 import useStyles from './styles';
 import { IScreenProps } from './types';
 import Progress from '../Progress';
-import Drawer from '../Drawer';
 
 const Screen: FC<IScreenProps> = ({
   image,
@@ -21,6 +21,7 @@ const Screen: FC<IScreenProps> = ({
 }) => {
   const classes = useStyles();
   const DrawerWrapper = hasDrawer ? Drawer : Fragment;
+  const DrawerProps = hasDrawer ? { href: '/subscribe' } : {};
   return (
     <Grid container className={classes.container}>
       <Grid item xs={12} className={classes.content}>
@@ -35,7 +36,7 @@ const Screen: FC<IScreenProps> = ({
             currentIndex={currentState as number}
           />
         </div>
-        <DrawerWrapper>
+        <DrawerWrapper {...DrawerProps}>
           <Button
             color="primary"
             variant="contained"
